@@ -18,4 +18,9 @@ class UsersController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def index
+    @cats = current_user.cats.where(user_id: current_user.id)
+    render :index
+  end
 end

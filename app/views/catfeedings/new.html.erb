@@ -1,8 +1,2 @@
-<h1>Create new reminder</h1>
 
-<%= form_with(model: @cat_feeding, url: cat_feeding_path, local: true) do |form| %>
-    <%= form.collection_select(:cat_id, @cats, :id, :name, prompt: "Select a cat")%>
-    <%= form.datetime_local_field :datetime%>
-    <%=form.submit "Create Reminder"%>
-<% end %>
     

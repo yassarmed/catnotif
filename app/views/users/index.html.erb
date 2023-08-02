@@ -1,0 +1,10 @@
+<h1>My Cats!</h1>
+<% @cats.each do |cat| %>
+  <h2><%= cat.name %></h2> 
+<% end %>
+
+<form style="display: inline" action="/user_dashboard" method="get">
+  <button class="btn btn-primary">
+  Back to DashBoard
+</button>
+</form>

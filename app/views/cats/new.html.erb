@@ -1,0 +1,35 @@
+<h1>Cat Info</h1>
+<%= form_with model: @cat do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <% @cat.errors.full_messages_for(:name).each do |name| %>
+      <div><%= name %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+    <% @cat.errors.full_messages_for(:age).each do |age| %>
+      <div><%= age %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :breed %>
+    <%= form.text_field :breed %>
+    <% @cat.errors.full_messages_for(:breed).each do |breed| %>
+      <div><%= breed %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :color %>
+    <%= form.text_field :color %>
+    <% @cat.errors.full_messages_for(:color).each do |color| %>
+      <div><%= color %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
