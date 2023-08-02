@@ -29,6 +29,20 @@
     <% end %>
   </div>
   <div>
+    <% @cat.feeding_times.each do |feeding_time| %>
+      <%= form.fields_for :feeding_times, feeding_time do |feeding_time_form| %>
+        <%= feeding_time_form.label :datetime %>
+        <%= feeding_time_form.datetime_local_field :datetime %>
+      <% end %>
+    <% end %>
+  </div>
+  <div>
+    <%= form.fields_for :feeding_times, @cat.feeding_times.new do |feeding_time_form| %>
+      <%= feeding_time_form.label :datetime %>
+      <%= feeding_time_form.datetime_local_field :datetime %>
+    <% end %>
+  </div>
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

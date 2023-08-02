@@ -8,7 +8,7 @@ class CatsController < ApplicationController
     @cat.user = current_user
 
     if @cat.save
-      redirect_to "/user_dashboard"
+      redirect_to "/user_dashboard", notice: "Cat created successfully!"
     else
       render :new
     end
@@ -17,6 +17,12 @@ class CatsController < ApplicationController
   private
 
   def cat_params
-    params.require(:cat).permit(:name, :age, :breed, :color)
+    params.require(:cat).permit(
+      :name,
+      :age,
+      :breed,
+      :color,
+      feeding_times_attributes: [:id, :datetime, :_destroy],
+    )
   end
 end
