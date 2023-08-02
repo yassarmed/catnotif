@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   get "/login" => "sessions#new"
   post "/sessions" => "sessions#create"
   get "/logout" => "sessions#destroy"
+
+  resources :catfeedings, only: [:new, :create]
+
+  get "/", to: "pages#home"
 end
