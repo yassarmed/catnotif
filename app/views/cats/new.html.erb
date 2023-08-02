@@ -38,7 +38,13 @@
   </div>
   <div>
     <%= form.fields_for :feeding_times, @cat.feeding_times.new do |feeding_time_form| %>
-      <%= feeding_time_form.label :datetime %>
+      <%= feeding_time_form.label :meal_1 %>
+      <%= feeding_time_form.datetime_local_field :datetime %>
+    <% end %>
+  </div>
+  <div>
+    <%= form.fields_for :feeding_times, @cat.feeding_times.new do |feeding_time_form| %>
+      <%= feeding_time_form.label :meal_2 %>
       <%= feeding_time_form.datetime_local_field :datetime %>
     <% end %>
   </div>
