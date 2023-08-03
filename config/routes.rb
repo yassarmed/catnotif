@@ -15,4 +15,11 @@ Rails.application.routes.draw do
 
   get "/addcat" => "cats#new"
   post "/cats" => "cats#create"
+
+  resources :cats do
+    member do
+      get :edit_feeding_times
+      patch :update_feeding_times
+    end
+  end
 end

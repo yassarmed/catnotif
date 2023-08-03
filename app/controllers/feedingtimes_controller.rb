@@ -1,0 +1,2 @@
+class FeedingtimesController < ApplicationController
+end

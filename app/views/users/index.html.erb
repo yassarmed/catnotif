@@ -4,12 +4,13 @@
   <% if cat.feeding_times.any? %>
     <ul>
       <% cat.feeding_times.each do |feeding_time| %>
-        <li>Meal # <%= feeding_time.datetime.strftime("%I:%M %p") %></li>
+        <li><%= feeding_time.datetime.strftime("%I:%M %p") %></li>
       <% end %>
     </ul>
   <% else %>
     <p>No feeding times set for this cat.</p>
   <% end %>
+  <%= link_to "Edit Feeding Times", edit_feeding_times_cat_path(cat) %>
 <% end %>
 
 <form style="display: inline" action="/user_dashboard" method="get">

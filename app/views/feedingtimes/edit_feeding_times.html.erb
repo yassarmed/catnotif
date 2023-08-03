@@ -1,0 +1,18 @@
+<h1>Edit Feeding Times for <%= @cat.name %></h1>
+<%= form_with model: @cat, url: update_feeding_times_cat_path(@cat), method: :patch do |form| %>
+  <% @cat.feeding_times.each_with_index do |feeding_time, index| %>
+    <div>
+      <%= form.fields_for :feeding_times, feeding_time do |feeding_time_form| %>
+        <%= feeding_time_form.label :datetime, "Feeding Time #{index + 1}" %>
+        <%= feeding_time_form.datetime_local_field :datetime %>
+      <% end %>
+    </div>
+  <% end %>
+  <%= form.fields_for :feeding_times, @cat.feeding_times.new do |feeding_time_form| %>
+    <%= feeding_time_form.label :datetime, "Feeding Time #{'New' if @cat.feeding_times.blank?}" %>
+    <%= feeding_time_form.datetime_local_field :datetime %>
+  <% end %>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
